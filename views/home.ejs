@@ -3,10 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Home | Halal Eats</title>
+    <meta name="description" content="Find the best halal restaurants!">
+    <meta name="keywords" content="Halal Restaurants, Categories, Search, Reviews, Ratings">
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
-    <h1>HOME OF HALAL EATS</h1>
-    
+    <header>
+        <h1>Halal Eats</h1>
+        <nav>
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/halal restaurants">Halal Restaurants</a></li>
+                <li><a href ="categories">Categories</a></li>
+                <li>
+                    <form action="/search" method="GET" style="display: inline;">
+                        <label for="search-query" class="visually-hidden">Search</label>
+                        <input type="text" id="search-query" name="query" placeholder="Search Restaurants">
+                        <button type="submit">Search</button>
+                    </form>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="featured-restaurants">
+            <h2>Featured Restaurants</h2>
+            <!--Restaurant Cards Goes Here-->
+            <div class="restaurant-card">
+                <img src="path/to/restaurant-image.jpg" alt="Restaurant Name">
+                <h3><a href="/restaurants/restaurant-id">Restaurant Name</a></h3>
+                <p>Rating:★★★★☆</p>
+                <p>Address: Restaurant Address</p>
+            </div>
+            <!--Repeat The Restaurant Cards Dynamically Here-->
+        </section>
+        <section id="recent-reviews">
+            <h2>Recent Reviews</h2>
+            <!---Reviews will be dynamically loaded here-->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Halal Eats. All rights reserved.</p>
+        <ul>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="privacy">Privacy</a></li>
+            <li><a href="/terms">Terms of Services</a></li>
+        </ul>
+    </footer>
 </body>
 </html>
