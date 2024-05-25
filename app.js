@@ -1,10 +1,9 @@
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
-const Restaurant = require('./models/restaurant')
+const Restaurant = require("./models/restaurant");
 
 mongoose.connect("mongodb://localhost:27017/halal-eats", {
-  useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
@@ -23,10 +22,15 @@ app.get("/", (req, res) => {
   res.render("home");
 });
 
-app.get("/restaurants", async (req, res) =>{
+app.get("/restaurants", async (req, res) => {
   const restaurants = await Restaurant.find({});
-  res.render('restaurants/index', {restaurants});
-})
+  res.render("restaurants/index", { restaurants });
+});
+
+app.get("/restaurants/:id", async (req, res) => {
+  const restaurant = await Restaurant.findById(req.params.id);
+  res.render("restaurants/show", { restaurant });
+});
 
 app.listen(3000, () => {
   console.log("LISTENING ON PORT 3000!");

@@ -9,7 +9,7 @@
     <h1>ALL RESTAURANTS</h1>
     <ul>
       <% for (let restaurant of restaurants){ %>
-      <li><% restaurant.title %></li>
+      <li><a href = "/restaurants/<%= restaurant._id %>"><%= restaurant.title %></a></li>
       <% }%>
     </ul>
   </body>
