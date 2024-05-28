@@ -33,6 +33,15 @@ app.get("/restaurants/:id", async (req, res) => {
   res.render("restaurants/show", { restaurant });
 });
 
+/// app.use for current user
+
+app.use((req, res, next) =>{
+  res.locals.currentUser = req.user;
+  res.locals.success = req.flash("success");
+  res.locals.error = req.flash("error");
+  next();
+})
+
 app.listen(3000, () => {
   console.log("LISTENING ON PORT 3000!");
 });
