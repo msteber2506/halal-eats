@@ -6,7 +6,10 @@
     <title>Restaurants</title>
   </head>
   <body>
-    <h1>ALL RESTAURANTS</h1>
+    <h1>RESTAURANTS</h1>
+    <div>
+      <a href="restaurants/new">Add Restaurant</a>
+    </div>
     <ul>
       <% for (let restaurant of restaurants){ %>
       <li><a href = "/restaurants/<%= restaurant._id %>"><%= restaurant.title %></a></li>
