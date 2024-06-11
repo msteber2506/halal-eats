@@ -18,6 +18,8 @@ db.once("open", () => {
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
+app.use(express.urlencoded({extended: true}));
+
 app.get("/", (req, res) => {
   res.render("home");
 });
@@ -27,11 +29,22 @@ app.get("/restaurants", async (req, res) => {
   res.render("restaurants/index", { restaurants });
 });
 
+
+
+app.get("/restaurants/new", (req,res) => {
+  res.render("restaurants/new");
+})
+
+app.post("/restaurants", async (req, res) => {
+  const restaurant = new Restaurant(req.body.restaurant);
+  await restaurant.save();
+  res.redirect(`/restaurants/${restaurant._id}`);
+});
+
 app.get("/restaurants/:id", async (req, res) => {
   const restaurant = await Restaurant.findById(req.params.id);
   res.render("restaurants/show", { restaurant });
 });
-
 app.listen(3000, () => {
   console.log("LISTENING ON PORT 3000!");
 });
