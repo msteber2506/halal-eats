@@ -8,11 +8,11 @@
   <body>
     <h1>RESTAURANTS</h1>
     <div>
-      <a href="restaurants/new">Add Restaurant</a>
+      <a href="/restaurants/new">Add Restaurant</a>
     </div>
     <ul>
       <% for (let restaurant of restaurants){ %>
-      <li><a href = "/restaurants/<%= restaurant._id %>"><%= restaurant.title %></a></li>
+      <li><a href = "/restaurants/<%=restaurant._id %>"><%= restaurant.title %></a></li>
       <% }%>
     </ul>
   </body>
