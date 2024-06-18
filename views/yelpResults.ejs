@@ -1,0 +1,14 @@
+<% layout('layouts/boilerplate') %>
+
+<main class="container mt-3">
+  <h1>Results</h1>
+  <ul class="list-group">
+    <% businesses.forEach(business => { %>
+      <li class="list-group-item">
+        <h2><%= business.name %></h2>
+        <p>Rating: <%= business.rating %>/5</p>
+        <p>Address: <%= business.location.address1 %>, <%= business.location.city %></p>
+      </li>
+    <% }) %>
+  </ul>
+</main>
